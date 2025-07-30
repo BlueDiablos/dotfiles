@@ -1,0 +1,7 @@
+[user]
+	email = joeblackledge@proton.me
+	name = jblack
+[init]
+	defaultBranch = main
+[http]
+	sslbackend = openssl
