@@ -1,0 +1,8 @@
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+#set the prefix to Ctrl+ea
+set -g prefix C-a
+
+unbind C-b
+
+bind C-a send-prefix

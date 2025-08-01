@@ -1,0 +1,17 @@
+local bind = vim.keymap.set
+local remap = {remap = true}
+
+bind('n', '<leader>w', '<cmd>write<cr>', {desc = 'Save'})
+bind({'n', 'x'}, 'gy', '"+y')
+bind('n', '<leader>a', ':keepjumps normal! ggVG<cr>')
+bind("n", "<leader>B", ":edit #<CR>", { desc = "Previous buffer" })
+bind({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+
+bind("n", "<leader>pv", vim.cmd.NERDTreeToggle)
+bind("n", "<leader>n", vim.cmd.NERDTreeFocus)
+
+bind("n", "<leader>ff", '<cmd>Telescope find_files<cr>')
+bind("n", "<leader>fg", '<cmd>Telescope live_grep<cr>')
+bind("n", "<leader>fb", '<cmd>Telescope buffers<cr>')
+bind("n", "<leader>fh", '<cmd>Telescope oldfiles<cr>')
+

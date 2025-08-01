@@ -1,0 +1,40 @@
+- hosts: onboarding
+  tasks:
+    - name: update apt cache
+      apt:
+        update_cache: yes
+        cache_valid_time: 3600
+      become: yes
+    
+    - name: create admin user 
+      ansible.builtin.user:
+        name: admin 
+        password: "{{'<Password>' | password_hash('sha512') }}"
+        state: present
+        groups: sudo
+        create_home: yes
+        home: /home/admin
+        shell: '/bin/bash'
+      become: yes
+
+    - name: add admin ssh key
+      authorized_key:
+        user: admin 
+        state: present
+        key: "{{ lookup('file', '~/.ssh/id_ed25519.pub') }}"
+      become: yes
+
+    - name: update all packages to the latest version
+      apt:
+        name: "*"
+        state: latest
+        force_apt_get: yes
+      become: yes
+
+    - name: Install Packages 
+      apt:
+        pkg:
+          - neovim
+          - net-tools
+        state: present
+      become: yes

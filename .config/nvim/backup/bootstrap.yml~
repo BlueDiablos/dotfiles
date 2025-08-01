@@ -1,0 +1,29 @@
+- name: Bootstrap Development Environment
+  hosts: localhost
+
+  tasks:
+    - name: Install Packages With Dnf
+      become: yes
+      dnf:
+        name:
+          - git
+          - tmux
+          - ShellCheck
+          - ninja-build
+          - gettext
+          - g++
+          - curl
+          - unzip
+          - cmake
+          - automake
+          - autoconf
+          - pkg-config
+        state: present
+        
+    - name: Install Neovim Pre-Built Archives 
+      become: yes
+      uri:
+        url: https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+        method: GET
+        follow_redirects: safe
+      register: result
