@@ -1,5 +1,6 @@
 vim.opt.shell = "/bin/bash"
 
+
 -- Use CLIPBOARD register + as default
 -- Remember to install "xsel" for this to work!
 -- For Neovim in WSL see:
@@ -48,6 +49,7 @@ vim.opt.signcolumn = "yes" -- Use a gutter for git-gutter and LSP messages
 vim.opt.completeopt = "menuone,noselect" -- Required settings for nvim-cmp
 vim.opt.conceallevel = 2 -- Hide "concealed" syntax, for example in Djot and markdown
 vim.opt.laststatus = 2 -- always show the status line
+
 
 vim.opt.lazyredraw = true -- speed up macros
 
