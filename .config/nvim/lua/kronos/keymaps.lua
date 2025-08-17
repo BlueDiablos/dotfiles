@@ -1,5 +1,4 @@
 local bind = vim.keymap.set
-local remap = { remap = true }
 
 bind("n", "<leader>w", "<cmd>write<cr>", { desc = "Save" })
 bind({ "n", "x" }, "gy", '"+y')
